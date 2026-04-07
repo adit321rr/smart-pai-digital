@@ -30,7 +30,7 @@ const Blogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/blogs');
+      const response = await axios.get('https://smart-pai-digital.vercel.app/api/blogs');
       setBlogs(response.data);
     } catch (error) { console.error(error); }
   };
@@ -38,7 +38,7 @@ const Blogs = () => {
   const fetchProfile = async () => {
     if (token) {
       try {
-        const response = await axios.get('http://localhost:5001/api/me', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://smart-pai-digital.vercel.app/api/me', { headers: { Authorization: `Bearer ${token}` } });
         setUserData(response.data);
       } catch (error) { console.error(error); }
     }
@@ -56,12 +56,12 @@ const Blogs = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5001/api/blogs/${editingId}`, formData, {
+        await axios.put(`https://smart-pai-digital.vercel.app/api/blogs/${editingId}`, formData, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         alert('Artikel berhasil diperbarui!');
       } else {
-        await axios.post('http://localhost:5001/api/blogs', formData, {
+        await axios.post('https://smart-pai-digital.vercel.app/api/blogs', formData, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         alert('Artikel berhasil diterbitkan!');
@@ -74,7 +74,7 @@ const Blogs = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Hapus artikel ini?")) return;
     try {
-      await axios.delete(`http://localhost:5001/api/blogs/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://smart-pai-digital.vercel.app/api/blogs/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       alert('Artikel dihapus!');
       fetchBlogs();
     } catch (error) { alert('Gagal menghapus.'); }

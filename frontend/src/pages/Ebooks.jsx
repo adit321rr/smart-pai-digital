@@ -20,7 +20,7 @@ const Ebooks = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/products');
+      const response = await axios.get('https://smart-pai-digital.vercel.app/api/products');
       setProducts(response.data);
     } catch (error) { console.error("Gagal mengambil data", error); }
   };
@@ -28,7 +28,7 @@ const Ebooks = () => {
   const fetchProfile = async () => {
     if (token) {
       try {
-        const response = await axios.get('http://localhost:5001/api/me', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://smart-pai-digital.vercel.app/api/me', { headers: { Authorization: `Bearer ${token}` } });
         setUserData(response.data);
       } catch (error) { console.error("Gagal mengambil profil", error); }
     }
@@ -51,12 +51,12 @@ const Ebooks = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5001/api/products/${editingId}`, formData, {
+        await axios.put(`https://smart-pai-digital.vercel.app/api/products/${editingId}`, formData, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         alert('E-Book diperbarui!');
       } else {
-        await axios.post('http://localhost:5001/api/products', formData, {
+        await axios.post('https://smart-pai-digital.vercel.app/api/products', formData, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         alert('E-Book berhasil ditambahkan!');
@@ -70,7 +70,7 @@ const Ebooks = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Hapus produk ini?")) return;
     try {
-      await axios.delete(`http://localhost:5001/api/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://smart-pai-digital.vercel.app/api/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       alert('Produk dihapus!');
       fetchProducts();
     } catch (error) { alert('Gagal menghapus.'); }

@@ -65,7 +65,7 @@ Sinkronisasi skema database dan jalankan server pengembangan:
 Bash
 npx prisma db push
 npm run dev
-Server backend akan berjalan pada http://localhost:5001.
+Server backend akan berjalan pada https://smart-pai-digital.vercel.app.
 
 3. Konfigurasi Frontend
 

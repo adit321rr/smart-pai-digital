@@ -19,7 +19,7 @@ const Webinars = () => {
 
   const fetchWebinars = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/webinars');
+      const response = await axios.get('https://smart-pai-digital.vercel.app/api/webinars');
       setWebinars(response.data);
     } catch (error) { console.error("Gagal mengambil data", error); }
   };
@@ -27,7 +27,7 @@ const Webinars = () => {
   const fetchProfile = async () => {
     if (token) {
       try {
-        const response = await axios.get('http://localhost:5001/api/me', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://smart-pai-digital.vercel.app/api/me', { headers: { Authorization: `Bearer ${token}` } });
         setUserData(response.data);
       } catch (error) { console.error("Gagal mengambil profil", error); }
     }
@@ -54,12 +54,12 @@ const Webinars = () => {
 
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5001/api/webinars/${editingId}`, formData, {
+        await axios.put(`https://smart-pai-digital.vercel.app/api/webinars/${editingId}`, formData, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         alert('Jadwal Pelatihan berhasil diperbarui!');
       } else {
-        await axios.post('http://localhost:5001/api/webinars', formData, {
+        await axios.post('https://smart-pai-digital.vercel.app/api/webinars', formData, {
           headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
         });
         alert('Jadwal Pelatihan berhasil ditambahkan!');
@@ -75,7 +75,7 @@ const Webinars = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Apakah Anda yakin ingin menghapus jadwal ini?")) return;
     try {
-      await axios.delete(`http://localhost:5001/api/webinars/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://smart-pai-digital.vercel.app/api/webinars/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       alert('Jadwal pelatihan dihapus!');
       fetchWebinars();
     } catch (error) { alert('Gagal menghapus.'); }

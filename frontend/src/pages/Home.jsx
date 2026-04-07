@@ -14,12 +14,12 @@ const Home = () => {
     const fetchData = async () => {
       try {
         if (token) {
-          const resProfile = await axios.get('http://localhost:5001/api/me', {
+          const resProfile = await axios.get('https://smart-pai-digital.vercel.app/api/me', {
             headers: { Authorization: `Bearer ${token}` }
           });
           setUserData(resProfile.data);
         }
-        const resProducts = await axios.get('http://localhost:5001/api/products');
+        const resProducts = await axios.get('https://smart-pai-digital.vercel.app/api/products');
         setRecentProducts(resProducts.data.slice(0, 4)); 
       } catch (error) { console.error(error); }
     };

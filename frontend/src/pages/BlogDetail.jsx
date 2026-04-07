@@ -10,7 +10,7 @@ const BlogDetail = () => {
 
   const fetchBlogDetail = async () => {
     try {
-      const response = await axios.get(`http://localhost:5001/api/blogs/${id}`);
+      const response = await axios.get(`https://smart-pai-digital.vercel.app/api/blogs/${id}`);
       setBlog(response.data);
     } catch (error) { console.error("Gagal mengambil detail blog", error); }
   };
@@ -20,7 +20,7 @@ const BlogDetail = () => {
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5001/api/blogs/${id}/comments`, 
+      await axios.post(`https://smart-pai-digital.vercel.app/api/blogs/${id}/comments`, 
         { content: commentText },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -18,11 +18,11 @@ const Community = () => {
   const fetchData = async () => {
     try {
       // Ambil Postingan Forum
-      const resPosts = await axios.get('http://localhost:5001/api/community');
+      const resPosts = await axios.get('https://smart-pai-digital.vercel.app/api/community');
       setPosts(resPosts.data);
       
       // Ambil Pengaturan QR Code
-      const resSetting = await axios.get('http://localhost:5001/api/community/settings');
+      const resSetting = await axios.get('https://smart-pai-digital.vercel.app/api/community/settings');
       setGroupSetting(resSetting.data);
       setWaLinkInput(resSetting.data.whatsappLink || '');
     } catch (error) { console.error("Gagal mengambil data", error); }
@@ -31,7 +31,7 @@ const Community = () => {
   const fetchProfile = async () => {
     if (token) {
       try {
-        const response = await axios.get('http://localhost:5001/api/me', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://smart-pai-digital.vercel.app/api/me', { headers: { Authorization: `Bearer ${token}` } });
         setUserData(response.data);
       } catch (error) { console.error("Gagal mengambil profil", error); }
     }
@@ -46,7 +46,7 @@ const Community = () => {
   const handlePostSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5001/api/community', { content }, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post('https://smart-pai-digital.vercel.app/api/community', { content }, { headers: { Authorization: `Bearer ${token}` } });
       setContent('');
       fetchData(); // Refresh data
     } catch (error) { alert('Gagal mengirim pesan.'); }
@@ -62,7 +62,7 @@ const Community = () => {
     }
 
     try {
-      await axios.put('http://localhost:5001/api/community/settings', formData, {
+      await axios.put('https://smart-pai-digital.vercel.app/api/community/settings', formData, {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
       });
       alert('Pengaturan Grup WA berhasil diperbarui!');
@@ -76,7 +76,7 @@ const Community = () => {
   const handleDeleteQR = async () => {
     if (!window.confirm("Yakin ingin menghapus gambar Barcode ini?")) return;
     try {
-      await axios.delete('http://localhost:5001/api/community/settings/qr', {
+      await axios.delete('https://smart-pai-digital.vercel.app/api/community/settings/qr', {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('QR Code berhasil dihapus!');

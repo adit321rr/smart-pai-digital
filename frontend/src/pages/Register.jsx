@@ -15,7 +15,7 @@ const Register = () => {
     setErrorMsg('');
 
     try {
-      await axios.post('http://localhost:5001/api/register', {
+      await axios.post('https://smart-pai-digital.vercel.app/api/register', {
         name,
         email,
         password,

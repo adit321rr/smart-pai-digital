@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       // Mengirim data ke Backend kita di port 5001
-      const response = await axios.post('http://localhost:5001/api/login', {
+      const response = await axios.post('https://smart-pai-digital.vercel.app/api/login', {
         email: email,
         password: password
       });

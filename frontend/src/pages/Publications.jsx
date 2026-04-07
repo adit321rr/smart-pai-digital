@@ -17,7 +17,7 @@ const Publications = () => {
 
   const fetchPublications = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/publications');
+      const response = await axios.get('https://smart-pai-digital.vercel.app/api/publications');
       setPublications(response.data);
     } catch (error) { console.error("Gagal mengambil data", error); }
   };
@@ -25,7 +25,7 @@ const Publications = () => {
   const fetchProfile = async () => {
     if (token) {
       try {
-        const response = await axios.get('http://localhost:5001/api/me', { headers: { Authorization: `Bearer ${token}` } });
+        const response = await axios.get('https://smart-pai-digital.vercel.app/api/me', { headers: { Authorization: `Bearer ${token}` } });
         setUserData(response.data);
       } catch (error) { console.error("Gagal mengambil profil", error); }
     }
@@ -41,13 +41,13 @@ const Publications = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5001/api/publications/${editingId}`, 
+        await axios.put(`https://smart-pai-digital.vercel.app/api/publications/${editingId}`, 
           { title, abstract, linkUrl },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         alert('Publikasi berhasil diperbarui!');
       } else {
-        await axios.post('http://localhost:5001/api/publications', 
+        await axios.post('https://smart-pai-digital.vercel.app/api/publications', 
           { title, abstract, linkUrl },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -65,7 +65,7 @@ const Publications = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Apakah Anda yakin ingin menghapus jurnal ini?")) return;
     try {
-      await axios.delete(`http://localhost:5001/api/publications/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`https://smart-pai-digital.vercel.app/api/publications/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       alert('Publikasi berhasil dihapus!');
       fetchPublications();
     } catch (error) { alert('Gagal menghapus.'); }
