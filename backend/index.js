@@ -353,6 +353,12 @@ app.post('/api/blogs/:id/comments', authenticateToken, async (req, res) => {
   } catch (error) { res.status(500).json({ message: "Gagal mengirim komentar." }); }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server Backend berjalan dengan Supabase di http://localhost:${PORT}`);
-});
+// --- KODE PALING BAWAH INDEX.JS ---
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server Backend berjalan di http://localhost:${PORT}`);
+  });
+}
+
+// Wajib diexport agar bisa dibaca oleh Vercel
+module.exports = app;
