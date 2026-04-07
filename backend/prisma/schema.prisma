@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  password     String
+  role         String        @default("MEMBER")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  
+  // Relasi
+  products     Product[] 
+  publications Publication[]
+  webinars     Webinar[]     
+  tutorials    Tutorial[]
+  communityPosts CommunityPost[]
+  blogs          BlogPost[]
+  blogComments   BlogComment[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  category    String   @default("E-BOOK") 
+  fileUrl     String?
+  publisher   String?  // Nama Penerbit
+  coverUrl    String?  // Link Gambar Cover (JPG/PNG)
+  pdfUrl      String?  // Link File PDF   
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Publication {
+  id          Int      @id @default(autoincrement())
+  title       String
+  abstract    String   
+  linkUrl     String?  
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model Webinar {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  schedule    DateTime // Tanggal dan Waktu Pelaksanaan
+  meetingLink String?  // Link Zoom / Google Meet
+  flyerUrl    String?
+
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Tutorial {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String   // Deskripsi atau langkah-langkah singkat
+  videoUrl    String?  // Link YouTube/Video tutorial
+  pdfUrl      String?  // Link Google Drive untuk Modul PDF
+  thumbnailUrl String?
+  
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CommunityPost {
+  id          Int      @id @default(autoincrement())
+  content     String   // Isi pesan atau pertanyaan diskusi
+  
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  
+  createdAt   DateTime @default(now())
+}
+
+model BlogPost {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String   // Isi artikel blog
+  category    String   @default("TIPS") // Kategori: TIPS, BERITA, atau INSIGHT
+  imageUrl    String?  // Link gambar sampul artikel
+  
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+
+  comments    BlogComment[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BlogComment {
+  id          Int      @id @default(autoincrement())
+  content     String
+  
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  
+  blogPostId  Int
+  blogPost    BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade) 
+  // onDelete: Cascade berarti jika blog dihapus, komentarnya otomatis ikut terhapus
+  
+  createdAt   DateTime @default(now())
+}
+
+model CommunitySetting {
+  id           Int      @id @default(autoincrement())
+  whatsappLink String?
+  qrCodeUrl    String?
+}
