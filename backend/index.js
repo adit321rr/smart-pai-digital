@@ -353,6 +353,42 @@ app.post('/api/blogs/:id/comments', authenticateToken, async (req, res) => {
   } catch (error) { res.status(500).json({ message: "Gagal mengirim komentar." }); }
 });
 
+// --- API UNTUK MENGAMBIL DATA TESTIMONI ---
+app.get('/api/testimonials', async (req, res) => {
+  try {
+    // Ambil data dari database, urutkan dari yang paling baru
+    const testimonials = await prisma.testimonial.findMany({
+      orderBy: { createdAt: 'desc' }
+    });
+    res.json(testimonials);
+  } catch (error) {
+    console.error("Error fetching testimonials:", error);
+    res.status(500).json({ error: "Gagal mengambil data testimoni" });
+  }
+});
+
+// --- API UNTUK MENYIMPAN TESTIMONI BARU ---
+app.post('/api/testimonials', async (req, res) => {
+  try {
+    const { name, role, text, imageUrl } = req.body;
+    
+    // Simpan ke database Prisma
+    const newTestimonial = await prisma.testimonial.create({
+      data: {
+        name,
+        role,
+        text,
+        imageUrl // Berisi link foto dari Supabase
+      }
+    });
+    
+    res.status(201).json(newTestimonial);
+  } catch (error) {
+    console.error("Error creating testimonial:", error);
+    res.status(500).json({ error: "Gagal mengirim testimoni" });
+  }
+});
+
 // --- KODE PALING BAWAH INDEX.JS ---
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {

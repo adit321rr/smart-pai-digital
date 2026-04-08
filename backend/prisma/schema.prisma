@@ -129,3 +129,12 @@ model CommunitySetting {
   whatsappLink String?
   qrCodeUrl    String?
 }
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  text      String
+  imageUrl  String?  // Tanda tanya (?) artinya boleh kosong (kalau member tidak upload foto)
+  createdAt DateTime @default(now())
+}
