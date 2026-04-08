@@ -83,15 +83,44 @@ const Home = () => {
             </div>
           </div>
           
-          {/* Logo Animasi Melayang */}
-          <div className="flex-1 flex justify-center lg:justify-end">
-             <div className="w-72 h-72 lg:w-96 lg:h-96 bg-gradient-to-tr from-white/5 to-white/20 rounded-full flex items-center justify-center border border-white/30 backdrop-blur-xl shadow-2xl animate-[bounce_6s_ease-in-out_infinite]">
-                <div className="text-center">
-                  <span className="text-4xl lg:text-5xl font-black tracking-widest block mb-2 drop-shadow-md">SMART</span>
-                  <span className="text-2xl font-bold text-yellow-300 tracking-widest drop-shadow-md">PAI MODEL</span>
+          {/* --- KOLOM KANAN: INOVASI LOGO 3D FLOATING CARD --- */}
+          <div className="flex-1 flex justify-center relative mt-12 lg:mt-0 w-full">
+            {/* Efek Cahaya Plasma di Belakang */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[450px] md:h-[450px] bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-500 rounded-full blur-[70px] opacity-40 animate-pulse pointer-events-none"></div>
+            
+            {/* Frame Utama (Kaca / Glassmorphism) */}
+            <div className="relative group w-full max-w-[320px] md:max-w-[400px]">
+              <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-4 md:p-6 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] transform transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(0,0,0,0.6)] hover:rotate-1">
+                
+                {/* Frame Putih Dalam (Untuk menyamarkan background JPEG) */}
+                <div className="bg-white rounded-[30px] p-6 md:p-10 shadow-inner overflow-hidden relative flex items-center justify-center">
+                  
+                  {/* Efek Kilau Kaca saat di-hover */}
+                  <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-[150%] group-hover:translate-x-[50%] transition-transform duration-1000 ease-in-out z-10 pointer-events-none"></div>
+                  
+                  {/* Logonya */}
+                  <img 
+                    src="/src/assets/logo.jpeg" 
+                    alt="Logo SMART PAI Digital" 
+                    className="w-full h-auto object-contain relative z-0 transform group-hover:scale-110 transition-transform duration-700"
+                  />
                 </div>
-             </div>
+
+                {/* Ornamen Badge Mengambang Kiri Bawah */}
+                <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 font-black py-3 px-6 rounded-2xl shadow-xl transform -rotate-6 group-hover:rotate-0 transition-all duration-500 border-2 border-white/50 z-20">
+                  #Inovasi2026
+                </div>
+                
+                {/* Ornamen Badge Mengambang Kanan Atas */}
+                <div className="absolute -top-6 -right-6 bg-blue-600 text-white font-bold py-3 px-6 rounded-2xl shadow-xl transform rotate-6 group-hover:rotate-0 transition-all duration-500 border-2 border-white/20 flex items-center gap-2 z-20">
+                  <span className="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span> Live
+                </div>
+
+              </div>
+            </div>
           </div>
+          {/* --- AKHIR INOVASI LOGO --- */}
+
         </div>
       </section>
 
