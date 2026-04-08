@@ -1,89 +1,171 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGraduationCap, FaChalkboardTeacher, FaBook, FaArrowLeft } from 'react-icons/fa';
-import founderImg from '../assets/founder.jpeg'; // Pastikan path gambarnya benar
 
 const Founder = () => {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] font-sans text-gray-900 pb-20">
-      
-      {/* Header Profile */}
-      <section className="bg-gradient-to-br from-blue-800 to-indigo-900 text-white pt-16 pb-32 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Link to="/" className="inline-flex items-center gap-2 text-blue-200 hover:text-white transition-colors mb-8">
-            <FaArrowLeft /> Kembali ke Beranda
-          </Link>
-          <div className="text-center md:text-left flex flex-col md:flex-row items-center gap-8">
-            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl flex-shrink-0">
-              <img src={founderImg} alt="Sarah Dina" className="w-full h-full object-cover" />
-            </div>
-            <div>
-              <h1 className="text-4xl md:text-5xl font-black mb-4">Sarah Dina, S.Pd., M.Pd.</h1>
-              <p className="text-xl text-yellow-300 font-bold mb-4">Founder & Pengembang Utama SMART PAI DIGITAL</p>
-              <p className="text-blue-100 leading-relaxed max-w-xl">
-                Guru, Dosen, dan Praktisi Pendidikan yang mendedikasikan diri pada integrasi nilai-nilai keislaman dan inovasi teknologi digital dalam dunia pendidikan.
-              </p>
-            </div>
-          </div>
+    <div className="bg-slate-50 min-h-screen pb-16 font-sans">
+      {/* --- HERO SECTION --- */}
+      <div className="bg-blue-700 text-white pt-16 pb-32 px-6 text-center relative overflow-hidden">
+        {/* Dekorasi Background */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-20 w-48 h-48 bg-yellow-400 rounded-full blur-3xl"></div>
         </div>
-      </section>
 
-      {/* Konten Detail */}
-      <section className="max-w-4xl mx-auto px-6 -mt-16 relative z-10">
-        <div className="bg-white rounded-[40px] p-8 md:p-12 shadow-xl border border-gray-100">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <Link to="/" className="text-sm text-blue-200 hover:text-white mb-6 inline-block transition-colors">
+            &larr; Kembali ke Beranda
+          </Link>
+          <div className="flex justify-center mb-6">
+            <img
+              // Ganti tulisan di bawah ini dengan lokasi asli fotonya jika berbeda
+              src="/src/assets/founder.jpeg" 
+              alt="Sarah Dina, S.Pd., M.Pd."
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white shadow-xl object-cover"
+            />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-2">Sarah Dina, S.Pd., M.Pd.</h1>
+          <h2 className="text-lg md:text-xl text-yellow-400 font-bold mb-4">Founder & Pengembang Utama SMART PAI DIGITAL</h2>
+          <p className="max-w-2xl mx-auto text-sm md:text-base text-blue-100 leading-relaxed">
+            Guru, Dosen, dan Praktisi Pendidikan yang mendedikasikan diri pada integrasi nilai-nilai keislaman dan inovasi teknologi digital dalam dunia pendidikan.
+          </p>
+        </div>
+      </div>
+
+      {/* --- MAIN CONTENT CARD --- */}
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl -mt-20 p-8 md:p-12 grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-20 mx-4 lg:mx-auto">
+
+        {/* KOLOM KIRI: Tentang Saya & Pendidikan */}
+        <div className="space-y-10">
           
           {/* Tentang Saya */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-black text-gray-900 mb-4 border-b-2 border-yellow-400 inline-block pb-2">Tentang Saya</h2>
-            <p className="text-gray-600 leading-loose text-lg">
+          <section>
+            <h3 className="text-2xl font-bold text-slate-800 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">Tentang Saya</h3>
+            <p className="text-slate-600 leading-relaxed text-sm md:text-base text-justify">
               Saya percaya bahwa pendidikan di era digital tidak boleh hanya berfokus pada transfer pengetahuan atau kecanggihan alat semata. Transformasi digital harus dibarengi dengan penguatan karakter, adab, dan literasi yang bermakna. Melalui SMART PAI Digital Model, saya merancang sebuah ekosistem pembelajaran di mana teknologi hadir sebagai jembatan untuk mendekatkan siswa pada nilai-nilai spiritual dan sosial yang luhur.
             </p>
-          </div>
+          </section>
 
-          {/* Grid Informasi */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            {/* Pendidikan */}
-            <div className="bg-blue-50 p-6 rounded-3xl border border-blue-100">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center text-2xl mb-4">
-                <FaGraduationCap />
+          {/* Riwayat Pendidikan */}
+          <section>
+            <h3 className="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-yellow-400 pb-2 inline-block">Riwayat Pendidikan</h3>
+            <div className="space-y-6">
+              
+              {/* S3 */}
+              <div className="relative pl-6 border-l-2 border-blue-200">
+                <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
+                <h4 className="font-bold text-slate-800">Doctor (S3) - Islamic Studies</h4>
+                <p className="text-sm text-blue-600 font-semibold mb-1">UIN Sunan Kalijaga Yogyakarta (2025 - Sekarang)</p>
+                <p className="text-xs text-slate-500 italic leading-relaxed">Disertasi: "Reconstruction of Islamic Religious Education Teachers' Digital Literacy Competencies in Technology-Based PAI Learning..."</p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Riwayat Pendidikan</h3>
-              <ul className="space-y-4 relative border-l-2 border-blue-200 ml-3 pl-4">
-                <li className="relative">
-                  <span className="absolute -left-[21px] top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white"></span>
-                  <h4 className="font-bold text-gray-800">S2 Magister Pendidikan (M.Pd.)</h4>
-                  <p className="text-sm text-gray-500">Universitas ... (Contoh: UIN Syarif Hidayatullah)</p>
+
+              {/* Ph.D Short Course */}
+              <div className="relative pl-6 border-l-2 border-blue-200">
+                <div className="absolute w-4 h-4 bg-yellow-400 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
+                <h4 className="font-bold text-slate-800">Ph.D Short Course - Philosophy of Education</h4>
+                <p className="text-sm text-blue-600 font-semibold">International Islamic University Malaysia (IIUM) (2025)</p>
+              </div>
+
+              {/* Master Short Course (Tahun Revisi 2024) */}
+              <div className="relative pl-6 border-l-2 border-blue-200">
+                <div className="absolute w-4 h-4 bg-yellow-400 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
+                <h4 className="font-bold text-slate-800">Master Short Course - Higher Education Systems</h4>
+                <p className="text-sm text-blue-600 font-semibold mb-1">USIM, Taksin Univ., Muhammadiyah Islamic College Singapore (2024)</p>
+              </div>
+
+              {/* S2 */}
+              <div className="relative pl-6 border-l-2 border-blue-200">
+                <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
+                <h4 className="font-bold text-slate-800">Master (S2) - Islamic Studies</h4>
+                <p className="text-sm text-blue-600 font-semibold">UIN Sunan Kalijaga Yogyakarta (2022 - 2024)</p>
+              </div>
+
+              {/* S1 */}
+              <div className="relative pl-6 border-l-2 border-blue-200">
+                <div className="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1 border-4 border-white shadow-sm"></div>
+                <h4 className="font-bold text-slate-800">Bachelor (S1) - Islamic Studies</h4>
+                <p className="text-sm text-blue-600 font-semibold">UIN Sumatera Utara (2018 - 2022)</p>
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+        {/* KOLOM KANAN: Fokus, Keahlian, Karya, Penghargaan */}
+        <div className="space-y-10">
+           
+           {/* Fokus & Keahlian */}
+           <section className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border border-yellow-100 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <span className="bg-yellow-400 text-slate-900 p-2 rounded-lg text-sm">🎓</span> Fokus & Keahlian
+              </h3>
+              <ul className="space-y-3 text-sm text-slate-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 font-bold">✓</span> Inovasi Pembelajaran PAI Berbasis Teknologi
                 </li>
-                <li className="relative">
-                  <span className="absolute -left-[21px] top-1 w-3 h-3 bg-gray-400 rounded-full border-2 border-white"></span>
-                  <h4 className="font-bold text-gray-800">S1 Sarjana Pendidikan (S.Pd.)</h4>
-                  <p className="text-sm text-gray-500">Universitas ... (Contoh: Universitas Negeri Medan)</p>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 font-bold">✓</span> Literasi Digital Pendidik dan Siswa
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 font-bold">✓</span> Filsafat dan Sistem Pendidikan Tinggi
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-yellow-500 font-bold">✓</span> Integrasi Karakter Islami dalam Ekosistem Digital
                 </li>
               </ul>
-            </div>
+           </section>
 
-            {/* Fokus Keahlian */}
-            <div className="bg-yellow-50 p-6 rounded-3xl border border-yellow-100">
-              <div className="w-12 h-12 bg-yellow-400 text-slate-900 rounded-xl flex items-center justify-center text-2xl mb-4">
-                <FaChalkboardTeacher />
+           {/* Karya Buku Utama */}
+           <section>
+            <h3 className="text-2xl font-bold text-slate-800 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">Publikasi Buku Utama</h3>
+            <div className="space-y-4">
+              <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-800 text-sm">Guru PAI di Era Digital: Transformasi Pembelajaran Berbasis Teknologi dan Penguatan Nilai</h4>
+                <p className="text-xs text-slate-500 mt-1 font-semibold">Penerbit: Bacaan Media (2025)</p>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Fokus & Keahlian</h3>
-              <ul className="space-y-3 text-gray-600 font-medium">
-                <li className="flex items-center gap-2">✔ Inovasi Pembelajaran PAI</li>
-                <li className="flex items-center gap-2">✔ Literasi Digital Siswa</li>
-                <li className="flex items-center gap-2">✔ Pengembangan Media Edukasi</li>
-                <li className="flex items-center gap-2">✔ Penguatan Karakter Berbasis Teknologi</li>
-              </ul>
+              <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-800 text-sm">Digitalisasi Manajemen Pendidikan Islam: Integrasi Teknologi dalam Tata Kelola Lembaga</h4>
+                <p className="text-xs text-slate-500 mt-1 font-semibold">Penerbit: Bacaan Media (2026)</p>
+              </div>
+              <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 hover:shadow-md transition-shadow">
+                <h4 className="font-bold text-slate-800 text-sm">Literasi Digital untuk Pendidik dan Peserta Didik</h4>
+                <p className="text-xs text-slate-500 mt-1 font-semibold">Penerbit: UMSU Press (2026)</p>
+              </div>
             </div>
+           </section>
 
-          </div>
+           {/* Penghargaan & Prestasi */}
+           <section>
+            <h3 className="text-2xl font-bold text-slate-800 mb-4 border-b-2 border-yellow-400 pb-2 inline-block">Penghargaan (Highlights)</h3>
+            <ul className="space-y-4">
+              <li className="flex gap-3 items-start">
+                <span className="text-yellow-500 text-lg">🏆</span>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-800">Best Graduates of Masters and Doctoral Programs</h4>
+                  <p className="text-xs text-slate-500">UIN Sunan Kalijaga Yogyakarta (2025)</p>
+                </div>
+              </li>
+              <li className="flex gap-3 items-start">
+                <span className="text-yellow-500 text-lg">🥇</span>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-800">1st Place International Essay Competition</h4>
+                  <p className="text-xs text-slate-500">UNISSA Brunei Darussalam (2024)</p>
+                </div>
+              </li>
+              <li className="flex gap-3 items-start">
+                <span className="text-yellow-500 text-lg">🌟</span>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-800">The Top Three PKU Participants</h4>
+                  <p className="text-xs text-slate-500">Universitas Darussalam Gontor (2024)</p>
+                </div>
+              </li>
+            </ul>
+           </section>
 
         </div>
-      </section>
-      
+      </div>
     </div>
   );
-};
+}
 
 export default Founder;
