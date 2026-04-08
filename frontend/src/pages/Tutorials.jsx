@@ -105,7 +105,7 @@ const Tutorials = () => {
                 
                 {/* UPLOAD FILE PDF MODUL TUTORIAL */}
                 <div className="flex-1 flex flex-col bg-white p-2 border rounded-lg">
-                  <label className="text-xs text-blue-600 font-bold mb-1">Upload Modul PDF (*.pdf)</label>
+                  <label className="text-xs text-emerald-600 font-bold mb-1">Upload Modul PDF (*.pdf)</label>
                   <input type="file" accept="application/pdf" onChange={(e) => setPdfFile(e.target.files[0])} className="text-sm" />
                 </div>
               </div>
@@ -143,7 +143,7 @@ const Tutorials = () => {
                 <p className="text-gray-600 text-sm mb-4 line-clamp-3">{t.content}</p>
                 <div className="mt-auto flex gap-3 mb-4">
                   {t.videoUrl && <a href={t.videoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-gray-50 border border-gray-200 py-2 rounded-lg text-sm font-bold">Nonton Video</a>}
-                  {t.pdfUrl && <a href={t.pdfUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-blue-50 text-blue-700 border border-blue-200 py-2 rounded-lg text-sm font-bold">Unduh Modul PDF</a>}
+                  {t.pdfUrl && <a href={t.pdfUrl} target="_blank" rel="noopener noreferrer" className="flex-1 text-center bg-emerald-50 text-emerald-700 border border-emerald-200 py-2 rounded-lg text-sm font-bold">Unduh Modul PDF</a>}
                 </div>
               </div>
             </div>

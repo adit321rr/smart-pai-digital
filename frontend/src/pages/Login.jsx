@@ -40,9 +40,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
-      <div className="max-w-md w-full bg-white shadow-lg rounded-2xl p-8 border-t-8 border-blue-600">
+      <div className="max-w-md w-full bg-white shadow-lg rounded-2xl p-8 border-t-8 border-emerald-600">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
-          Login <span className="text-blue-600">SMART PAI DIGITAL</span>
+          Login <span className="text-emerald-600">SMART PAI DIGITAL</span>
         </h2>
 
         {/* Jika ada error, tampilkan kotak merah ini */}
@@ -59,7 +59,7 @@ const Login = () => {
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
               placeholder="Masukkan email..."
               required
             />
@@ -71,7 +71,7 @@ const Login = () => {
               type="password" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
               placeholder="Masukkan password..."
               required
             />
@@ -79,7 +79,7 @@ const Login = () => {
 
           <button 
             type="submit" 
-            className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg mt-4 hover:bg-blue-700 transition-colors"
+            className="w-full bg-emerald-600 text-white font-bold py-3 rounded-lg mt-4 hover:bg-emerald-700 transition-colors"
           >
             Masuk
           </button>

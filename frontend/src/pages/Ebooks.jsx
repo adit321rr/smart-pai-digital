@@ -89,22 +89,22 @@ const Ebooks = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-8 border-b-4 border-blue-600 inline-block pb-2">
+        <h1 className="text-3xl font-extrabold text-gray-900 mb-8 border-b-4 border-emerald-600 inline-block pb-2">
           Koleksi E-Book & Modul
         </h1>
 
         {/* --- FORM ADMIN --- */}
         {userData && userData.role === 'ADMIN' && (
-          <div className={`p-6 rounded-xl shadow-md mb-10 border ${editingId ? 'bg-yellow-50 border-yellow-400' : 'bg-white border-blue-100'}`}>
-            <h3 className={`text-xl font-bold mb-4 ${editingId ? 'text-yellow-700' : 'text-blue-800'}`}>
+          <div className={`p-6 rounded-xl shadow-md mb-10 border ${editingId ? 'bg-yellow-50 border-yellow-400' : 'bg-white border-emerald-100'}`}>
+            <h3 className={`text-xl font-bold mb-4 ${editingId ? 'text-yellow-700' : 'text-emerald-800'}`}>
               {editingId ? 'Panel Admin: Edit E-Book' : 'Panel Admin: Tambah E-Book'}
             </h3>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div className="flex flex-col md:flex-row gap-4">
-                <input type="text" placeholder="Judul E-Book..." value={title} onChange={(e) => setTitle(e.target.value)} className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white" required />
-                <input type="text" placeholder="Nama Penerbit..." value={publisher} onChange={(e) => setPublisher(e.target.value)} className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white" required />
+                <input type="text" placeholder="Judul E-Book..." value={title} onChange={(e) => setTitle(e.target.value)} className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 bg-white" required />
+                <input type="text" placeholder="Nama Penerbit..." value={publisher} onChange={(e) => setPublisher(e.target.value)} className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 bg-white" required />
               </div>
-              <textarea placeholder="Deskripsi singkat..." value={description} onChange={(e) => setDescription(e.target.value)} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 bg-white" rows="3" required />
+              <textarea placeholder="Deskripsi singkat..." value={description} onChange={(e) => setDescription(e.target.value)} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-emerald-500 bg-white" rows="3" required />
               
               <div className="flex flex-col md:flex-row gap-4">
                 {/* UPLOAD FILE PDF */}
@@ -120,7 +120,7 @@ const Ebooks = () => {
               </div>
 
               <div className="flex gap-4 mt-2">
-                <button type="submit" disabled={loading} className={`${loading ? 'bg-gray-400' : (editingId ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-blue-600 hover:bg-blue-700')} text-white font-bold py-2 px-6 rounded-lg transition-colors`}>
+                <button type="submit" disabled={loading} className={`${loading ? 'bg-gray-400' : (editingId ? 'bg-yellow-500 hover:bg-yellow-600' : 'bg-emerald-600 hover:bg-emerald-700')} text-white font-bold py-2 px-6 rounded-lg transition-colors`}>
                   {loading ? 'Mengunggah...' : (editingId ? 'Simpan Perubahan' : 'Upload E-Book')}
                 </button>
                 {editingId && <button type="button" onClick={handleCancelEdit} className="bg-gray-300 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-400 transition-colors">Batal Edit</button>}
@@ -156,7 +156,7 @@ const Ebooks = () => {
                       href={product.pdfUrl}
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="mt-auto block text-center bg-blue-50 text-blue-700 border border-blue-200 py-2 rounded-lg text-sm font-bold hover:bg-blue-100 transition shadow-sm"
+                      className="mt-auto block text-center bg-emerald-50 text-emerald-700 border border-emerald-200 py-2 rounded-lg text-sm font-bold hover:bg-emerald-100 transition shadow-sm"
                     >
                       Buka PDF &rarr;
                     </a>

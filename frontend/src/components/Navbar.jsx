@@ -16,7 +16,7 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="bg-blue-600 text-white shadow-md sticky top-0 z-50">
+    <nav className="bg-emerald-700 text-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center max-w-7xl">
         
         {/* LOGO KIRI - SUDAH DIUBAH */}
@@ -38,13 +38,13 @@ const Navbar = () => {
         </button>
 
         <div className="hidden md:flex gap-4 lg:gap-6 items-center font-medium text-sm lg:text-base">
-          <Link to="/" className="hover:text-blue-200 transition-colors">Home</Link>
-          <Link to="/ebooks" className="hover:text-blue-200 transition-colors">E-Book</Link>
-          <Link to="/publications" className="hover:text-blue-200 transition-colors">Publikasi</Link>
-          <Link to="/webinars" className="hover:text-blue-200 transition-colors">Pelatihan</Link>
-          <Link to="/tutorials" className="hover:text-blue-200 transition-colors">Tutorial</Link>
-          <Link to="/community" className="hover:text-blue-200 transition-colors">Komunitas</Link>
-          <Link to="/blogs" className="hover:text-blue-200 transition-colors">Blog</Link>
+          <Link to="/" className="hover:text-emerald-200 transition-colors">Home</Link>
+          <Link to="/ebooks" className="hover:text-emerald-200 transition-colors">E-Book</Link>
+          <Link to="/publications" className="hover:text-emerald-200 transition-colors">Publikasi</Link>
+          <Link to="/webinars" className="hover:text-emerald-200 transition-colors">Pelatihan</Link>
+          <Link to="/tutorials" className="hover:text-emerald-200 transition-colors">Tutorial</Link>
+          <Link to="/community" className="hover:text-emerald-200 transition-colors">Komunitas</Link>
+          <Link to="/blogs" className="hover:text-emerald-200 transition-colors">Blog</Link>
           
           {token ? (
             <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg font-bold transition-colors shadow-sm ml-2">
@@ -52,10 +52,10 @@ const Navbar = () => {
             </button>
           ) : (
             <div className="flex gap-2 ml-2">
-              <Link to="/login" className="bg-transparent border border-white text-white hover:bg-white hover:text-blue-600 px-4 py-2 rounded-lg font-bold transition-all shadow-sm">
+              <Link to="/login" className="bg-transparent border border-white text-white hover:bg-white hover:text-emerald-600 px-4 py-2 rounded-lg font-bold transition-all shadow-sm">
                 Login
               </Link>
-              <Link to="/register" className="bg-white text-blue-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-bold transition-colors shadow-sm">
+              <Link to="/register" className="bg-white text-emerald-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-bold transition-colors shadow-sm">
                 Daftar
               </Link>
             </div>
@@ -64,7 +64,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-blue-700 absolute w-full left-0 top-full flex flex-col shadow-xl border-t border-blue-500">
+        <div className="md:hidden bg-emerald-700 absolute w-full left-0 top-full flex flex-col shadow-xl border-t border-emerald-500">
           <div className="flex flex-col px-6 py-4 space-y-4 font-medium text-lg">
             <Link to="/" onClick={closeMenu} className="hover:text-yellow-300 transition-colors">Home</Link>
             <Link to="/ebooks" onClick={closeMenu} className="hover:text-yellow-300 transition-colors">E-Book & Modul</Link>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <Link to="/community" onClick={closeMenu} className="hover:text-yellow-300 transition-colors">Komunitas</Link>
             <Link to="/blogs" onClick={closeMenu} className="hover:text-yellow-300 transition-colors">Blog & Berita</Link>
             
-            <hr className="border-blue-500 my-2" />
+            <hr className="border-emerald-500 my-2" />
 
             {token ? (
               <button onClick={handleLogout} className="bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg font-bold text-center">
@@ -82,10 +82,10 @@ const Navbar = () => {
               </button>
             ) : (
               <div className="flex flex-col gap-3">
-                <Link to="/login" onClick={closeMenu} className="border border-white text-center py-3 rounded-lg font-bold text-white hover:bg-white hover:text-blue-600">
+                <Link to="/login" onClick={closeMenu} className="border border-white text-center py-3 rounded-lg font-bold text-white hover:bg-white hover:text-emerald-600">
                   Login
                 </Link>
-                <Link to="/register" onClick={closeMenu} className="bg-white text-blue-600 text-center py-3 rounded-lg font-bold hover:bg-gray-100">
+                <Link to="/register" onClick={closeMenu} className="bg-white text-emerald-600 text-center py-3 rounded-lg font-bold hover:bg-gray-100">
                   Daftar Member Baru
                 </Link>
               </div>

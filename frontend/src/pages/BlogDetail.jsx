@@ -38,7 +38,7 @@ const BlogDetail = () => {
         <img src={blog.imageUrl || "https://via.placeholder.com/1200x600"} alt="Cover" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
           <div className="max-w-4xl mx-auto px-6 w-full pb-10">
-            <span className="bg-blue-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block">
+            <span className="bg-emerald-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 inline-block">
               {blog.category}
             </span>
             <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4">{blog.title}</h1>
@@ -48,7 +48,7 @@ const BlogDetail = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 mt-8">
-        <Link to="/blogs" className="text-blue-600 font-bold hover:underline mb-8 inline-block">← Kembali ke Daftar Blog</Link>
+        <Link to="/blogs" className="text-emerald-600 font-bold hover:underline mb-8 inline-block">← Kembali ke Daftar Blog</Link>
         
        {/* ISI ARTIKEL */}
         <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 mb-10 overflow-hidden">
@@ -69,13 +69,13 @@ const BlogDetail = () => {
               <textarea 
                 placeholder="Tulis pendapat Anda tentang artikel ini..." 
                 value={commentText} onChange={(e) => setCommentText(e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 outline-none focus:ring-2 focus:ring-blue-500 mb-3"
+                className="w-full p-4 border border-gray-300 rounded-xl bg-gray-50 outline-none focus:ring-2 focus:ring-emerald-500 mb-3"
                 rows="3" required
               />
-              <button type="submit" className="bg-blue-600 text-white font-bold py-2 px-8 rounded-xl hover:bg-blue-700">Kirim Komentar</button>
+              <button type="submit" className="bg-emerald-600 text-white font-bold py-2 px-8 rounded-xl hover:bg-emerald-700">Kirim Komentar</button>
             </form>
           ) : (
-            <div className="bg-blue-50 text-blue-700 p-4 rounded-xl mb-8 text-center">
+            <div className="bg-emerald-50 text-emerald-700 p-4 rounded-xl mb-8 text-center">
               Silakan <Link to="/login" className="font-bold underline">Login</Link> untuk ikut berkomentar.
             </div>
           )}

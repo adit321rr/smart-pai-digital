@@ -152,14 +152,14 @@ const Blogs = () => {
                 <img src={blog.imageUrl || "https://via.placeholder.com/600x400"} alt="Cover" className="w-full h-full object-cover" />
               </div>
               <div className="p-6 flex flex-col flex-grow">
-                <span className="text-[10px] font-bold uppercase text-blue-600 bg-blue-50 px-2 py-1 rounded w-fit mb-2">{blog.category}</span>
+                <span className="text-[10px] font-bold uppercase text-emerald-600 bg-emerald-50 px-2 py-1 rounded w-fit mb-2">{blog.category}</span>
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">{blog.title}</h2>
                 {/* Gunakan stripHtml untuk preview agar kode HTML tidak kelihatan di depan */}
                 <p className="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">{stripHtml(blog.content)}</p>
                 
                 <div className="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
                   <span className="text-xs text-gray-400">Oleh: <span className="font-semibold text-gray-600">{blog.author?.name}</span></span>
-                  <Link to={`/blogs/${blog.id}`} className="text-sm font-bold text-slate-800 hover:text-blue-600 hover:underline">
+                  <Link to={`/blogs/${blog.id}`} className="text-sm font-bold text-slate-800 hover:text-emerald-600 hover:underline">
                     Baca Selengkapnya →
                   </Link>
                 </div>
